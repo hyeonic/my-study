@@ -2,7 +2,9 @@ package com.example.mystudy.repository;
 
 import com.example.mystudy.domain.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserRepository {
@@ -27,5 +29,9 @@ public class UserRepository {
 
     public User findById(Long id) {
         return userMap.get(id);
+    }
+
+    public List<User> findUsers() {
+        return new ArrayList<>(userMap.values());
     }
 }
