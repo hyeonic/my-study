@@ -25,4 +25,22 @@ class UserRepositoryTest {
         Assertions.assertThat(password).isEqualTo(findUser.getPassword());
         Assertions.assertThat(name).isEqualTo(findUser.getName());
     }
+
+    @Test
+    void findUsers() {
+
+        // given & when
+        userRepository.save(
+                "hyeonic@emai.com",
+                "1234",
+                "hyeonic");
+
+        userRepository.save(
+                "dev@emai.com",
+                "1234",
+                "dev");
+
+        // then
+        Assertions.assertThat(userRepository.findUsers().size()).isEqualTo(2);
+    }
 }
